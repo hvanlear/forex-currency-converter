@@ -1,0 +1,26 @@
+{% extends 'index.html' %} {% block title %} Acme Co. Currency Converter {%
+endblock %} {% block content %}
+<h1>Currency Converter</h1>
+<form action="/convert" method="POST">
+  <label for="fromCurrency">Converting From: </label>
+  <input type="text" name="fromCurrency" id="fromCurrency" required />
+  <label for="amount">Enter Amount: </label>
+  <input type="number" name="amount" id="amount" />
+  <label for="toCurrency"> Converting To: </label>
+  <input type="text" name="toCurrency" id="toCurrency" required />
+
+  <!-- <label for="amount">Amount</label>
+  <input type="text" name="amount" id="amount" /> -->
+  <button>Convert</button>
+</form>
+
+<h2>Available Currency</h2>
+<section>
+  <ul class="curList">
+    {% for k,v in currency_list.items() %}
+    <li>{{k, v}}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% endblock %}
